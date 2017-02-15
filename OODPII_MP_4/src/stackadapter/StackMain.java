@@ -7,7 +7,7 @@ public class StackMain
 {
 	public static void main(String[] args)
 	{
-		StrictStackImpl<String> stack = new StrictStackImpl();
+		StrictStackImpl<String> stack = new StrictStackImpl<String>();
 		
 		System.out.println("The stack is empty: " + stack.isEmpty());
 //		stack.pop(); //Will give us and exception
