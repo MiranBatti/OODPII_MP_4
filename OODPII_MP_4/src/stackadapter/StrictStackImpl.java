@@ -29,7 +29,7 @@ public class StrictStackImpl<T> implements StrictStack<T>
 	public T pop() throws StrictStackEmptyException
 	{
 		if(elements.isEmpty())
-			throw new StrictStackEmptyException("Cannot remove from empty stack");
+			throw new StrictStackEmptyException("Cannot remove from an empty stack");
 		
 		T removedElement = elements.remove(elements.size() - 1);
 		
@@ -39,6 +39,8 @@ public class StrictStackImpl<T> implements StrictStack<T>
 	@Override
 	public T top() 
 	{
+		if(elements.isEmpty())
+			throw new StrictStackEmptyException("Cannot peek at an empty stack");
 		return elements.get(elements.size() - 1);
 	}
 

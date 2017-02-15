@@ -5,9 +5,8 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
 
-public class ListLogger<T> extends AbstractListDecorator<T>
+public class ListLogger<T> extends AbstractListDecorator<T> implements List<T>
 {
-
 	public ListLogger(List<T> list) 
 	{
 		super(list);
@@ -15,47 +14,53 @@ public class ListLogger<T> extends AbstractListDecorator<T>
 
 	@Override
 	public void add(int index, T element) {
-		System.out.println("Element " + index + " = " + element);
+//		System.out.println("Element " + index + " = " + element);
+		System.out.println("add(int index, T element), index = " + index + ", element = " + element);
 		super.add(index, element);
 	}
 
 	@Override
 	public boolean add(T e) {
 		boolean tmp = super.add(e);
-		
-		System.out.println(tmp);
+		System.out.println("add(T e) = " + String.valueOf(tmp));
 		
 		return tmp;
 	}
 
 	@Override
 	public boolean addAll(Collection<? extends T> c) {
-		// TODO Auto-generated method stub
-		return super.addAll(c);
+		boolean tmp = super.addAll(c);
+		System.out.println("addAll(Collection<? extends T> c) = " + tmp);
+
+		return tmp;
 	}
 
 	@Override
 	public boolean addAll(int index, Collection<? extends T> c) {
-		// TODO Auto-generated method stub
-		return super.addAll(index, c);
+		boolean tmp = super.addAll(index, c);
+		System.out.println("addAll(int index, Collection<? extends T> c), index = " + index + ", c = " + c);
+		
+		return tmp;
 	}
 
 	@Override
 	public void clear() {
-		// TODO Auto-generated method stub
+		System.out.println("clear()");
 		super.clear();
 	}
 
 	@Override
 	public boolean contains(Object o) {
-		// TODO Auto-generated method stub
-		return super.contains(o);
+		boolean tmp = super.contains(o);
+		System.out.println("contains(Object o) = " + tmp);
+		return tmp;
 	}
 
 	@Override
 	public boolean containsAll(Collection<?> c) {
-		// TODO Auto-generated method stub
-		return super.containsAll(c);
+		boolean tmp = super.containsAll(c);
+		System.out.println("containsAll(Collection<?> c) = " + tmp);
+		return tmp;
 	}
 
 	@Override
