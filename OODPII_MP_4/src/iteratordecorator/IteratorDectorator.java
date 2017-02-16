@@ -1,4 +1,4 @@
-package decorator;
+package iteratordecorator;
 
 import java.util.Iterator;
 

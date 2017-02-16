@@ -1,7 +1,9 @@
-package decorator;
+package iteratordecorator;
 
 import java.util.Iterator;
 import java.util.logging.Logger;
+
+import listdecorator.Loggable;
 
 public class IteratorLogger<T> extends IteratorDectorator<T> implements Iterator<T>, Loggable
 {

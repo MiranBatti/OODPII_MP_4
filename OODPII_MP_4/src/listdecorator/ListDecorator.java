@@ -1,4 +1,4 @@
-package decorator;
+package listdecorator;
 
 import java.util.Collection;
 import java.util.Iterator;

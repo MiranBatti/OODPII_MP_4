@@ -1,10 +1,13 @@
-package decorator;
+package listdecorator;
 
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
 import java.util.logging.Logger;
+
+import iteratordecorator.IteratorLogger;
+import listiteratordecorator.ListIteratorLogger;
 
 public class ListLogger<T> extends ListDecorator<T> implements List<T>, Loggable
 {
@@ -17,7 +20,6 @@ public class ListLogger<T> extends ListDecorator<T> implements List<T>, Loggable
 
 	@Override
 	public void add(int index, T element) {
-//		System.out.println("Element " + index + " = " + element);
 		logger.finer("add(int index, T element), index = " + index + ", element = " + element);
 		super.add(index, element);
 	}
@@ -25,7 +27,7 @@ public class ListLogger<T> extends ListDecorator<T> implements List<T>, Loggable
 	@Override
 	public boolean add(T e) {
 		boolean tmp = super.add(e);
-		logger.finer("add(T e) = " + String.valueOf(tmp));
+		logger.finer("add(T e) = " + tmp);
 		return tmp;
 	}
 
@@ -73,7 +75,7 @@ public class ListLogger<T> extends ListDecorator<T> implements List<T>, Loggable
 	@Override
 	public int indexOf(Object o) {
 		int tmp = super.indexOf(o);
-		logger.finer("indexOf(Object o) = " + tmp);
+		logger.finer("indexOf(Object o), " + o.toString() + ", index = " + tmp);
 		return tmp;
 	}
 
@@ -100,13 +102,13 @@ public class ListLogger<T> extends ListDecorator<T> implements List<T>, Loggable
 	@Override
 	public ListIterator<T> listIterator() {
 		logger.finer("listIterator()");
-		return super.listIterator();
+		return new ListIteratorLogger<T>(super.listIterator());
 	}
 
 	@Override
 	public ListIterator<T> listIterator(int index) {
 		logger.finer("listIterator(int index)");
-		return super.listIterator(index);
+		return new ListIteratorLogger<T>(super.listIterator(index));
 	}
 
 	@Override
