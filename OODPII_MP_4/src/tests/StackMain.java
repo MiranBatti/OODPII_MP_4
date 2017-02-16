@@ -1,7 +1,10 @@
-package stackadapter;
+package tests;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import stackadapter.StrictStack;
+import stackadapter.StrictStackImpl;
 
 public class StackMain 
 {
