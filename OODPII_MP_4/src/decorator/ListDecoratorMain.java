@@ -9,9 +9,11 @@ public class ListDecoratorMain
 	{
 		List<String> list = new ArrayList<String>();
 		
-		AbstractListDecorator<String> v = new ListLogger<>(list);
+		ListDecorator<String> decoratedList = new ListLogger<String>(list);
 		
-		v.add("element 0");
-		v.add(0, "element 1");
+		for(int i = 0; i < 10; i++)
+			decoratedList.add("Element " + i);
+		for (String string : decoratedList)
+			System.out.println(string);
 	}
 }

@@ -4,9 +4,12 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
+import java.util.logging.Logger;
 
-public class ListLogger<T> extends AbstractListDecorator<T> implements List<T>
+public class ListLogger<T> extends ListDecorator<T> implements List<T>, Loggable
 {
+	private final Logger logger = logger();
+	
 	public ListLogger(List<T> list) 
 	{
 		super(list);
@@ -15,147 +18,152 @@ public class ListLogger<T> extends AbstractListDecorator<T> implements List<T>
 	@Override
 	public void add(int index, T element) {
 //		System.out.println("Element " + index + " = " + element);
-		System.out.println("add(int index, T element), index = " + index + ", element = " + element);
+		logger.finer("add(int index, T element), index = " + index + ", element = " + element);
 		super.add(index, element);
 	}
 
 	@Override
 	public boolean add(T e) {
 		boolean tmp = super.add(e);
-		System.out.println("add(T e) = " + String.valueOf(tmp));
-		
+		logger.finer("add(T e) = " + String.valueOf(tmp));
 		return tmp;
 	}
 
 	@Override
 	public boolean addAll(Collection<? extends T> c) {
 		boolean tmp = super.addAll(c);
-		System.out.println("addAll(Collection<? extends T> c) = " + tmp);
-
+		logger.finer("addAll(Collection<? extends T> c) = " + tmp);
 		return tmp;
 	}
 
 	@Override
 	public boolean addAll(int index, Collection<? extends T> c) {
 		boolean tmp = super.addAll(index, c);
-		System.out.println("addAll(int index, Collection<? extends T> c), index = " + index + ", c = " + c);
-		
+		logger.finer("addAll(int index, Collection<? extends T> c), index = " + index + ", return value = " + c);
 		return tmp;
 	}
 
 	@Override
 	public void clear() {
-		System.out.println("clear()");
+		logger.finer("clear()");
 		super.clear();
 	}
 
 	@Override
 	public boolean contains(Object o) {
 		boolean tmp = super.contains(o);
-		System.out.println("contains(Object o) = " + tmp);
+		logger.finer("contains(Object o) = " + tmp);
 		return tmp;
 	}
 
 	@Override
 	public boolean containsAll(Collection<?> c) {
 		boolean tmp = super.containsAll(c);
-		System.out.println("containsAll(Collection<?> c) = " + tmp);
+		logger.finer("containsAll(Collection<?> c) = " + tmp);
 		return tmp;
 	}
 
 	@Override
 	public T get(int index) {
-		// TODO Auto-generated method stub
-		return super.get(index);
+		T tmp = super.get(index);
+		logger.finer("get(int index), index = " + index + ", return value = " + tmp.toString());
+		return tmp;
 	}
 
 	@Override
 	public int indexOf(Object o) {
-		// TODO Auto-generated method stub
-		return super.indexOf(o);
+		int tmp = super.indexOf(o);
+		logger.finer("indexOf(Object o) = " + tmp);
+		return tmp;
 	}
 
 	@Override
 	public boolean isEmpty() {
-		// TODO Auto-generated method stub
-		return super.isEmpty();
+		boolean tmp = super.isEmpty();
+		logger.finer("isEmpty = " + tmp);
+		return tmp;
 	}
 
 	@Override
 	public Iterator<T> iterator() {
-		// TODO Auto-generated method stub
-		return super.iterator();
+		logger.finer("iterator()");
+		return new IteratorLogger<T>(super.iterator());
 	}
 
 	@Override
 	public int lastIndexOf(Object o) {
-		// TODO Auto-generated method stub
-		return super.lastIndexOf(o);
+		int tmp = super.lastIndexOf(o);
+		logger.finer("lastIndexOf() = " + tmp);
+		return tmp;
 	}
 
 	@Override
 	public ListIterator<T> listIterator() {
-		// TODO Auto-generated method stub
+		logger.finer("listIterator()");
 		return super.listIterator();
 	}
 
 	@Override
 	public ListIterator<T> listIterator(int index) {
-		// TODO Auto-generated method stub
+		logger.finer("listIterator(int index)");
 		return super.listIterator(index);
 	}
 
 	@Override
 	public T remove(int index) {
-		// TODO Auto-generated method stub
-		return super.remove(index);
+		T tmp = super.remove(index);
+		logger.finer("remove(int index) = " + tmp.toString());
+		return tmp; 
 	}
 
 	@Override
 	public boolean remove(Object o) {
-		// TODO Auto-generated method stub
-		return super.remove(o);
+		boolean tmp = super.remove(o);
+		logger.finer("remove(Object o) = " + tmp);
+		return tmp;
 	}
 
 	@Override
 	public boolean removeAll(Collection<?> c) {
-		// TODO Auto-generated method stub
+		logger.finer("removeAll(Collection<?> c)");
 		return super.removeAll(c);
 	}
 
 	@Override
 	public boolean retainAll(Collection<?> c) {
-		// TODO Auto-generated method stub
+		logger.finer("retainAll(Collection<?> c)");
 		return super.retainAll(c);
 	}
 
 	@Override
 	public T set(int index, T element) {
-		// TODO Auto-generated method stub
-		return super.set(index, element);
+		T tmp = super.set(index, element);
+		logger.finer("set(int index, T element) = " + tmp.toString());
+		return tmp;
 	}
 
 	@Override
 	public int size() {
-		// TODO Auto-generated method stub
-		return super.size();
+		int tmp = super.size();
+		logger.finer("size() = " + tmp);
+		return tmp;
 	}
 
 	@Override
 	public List<T> subList(int fromIndex, int toIndex) {
-		// TODO Auto-generated method stub
+		logger.finer("subList(int fromIndex)");
 		return super.subList(fromIndex, toIndex);
 	}
 
 	@Override
 	public Object[] toArray() {
-		// TODO Auto-generated method stub
+		logger.finer("toArray()");
 		return super.toArray();
 	}
 
 	@Override
 	public <T> T[] toArray(T[] a) {
-		// TODO Auto-generated method stub
+		logger.finer("toString(T[] a)");
 		return super.toArray(a);
 	}
 	

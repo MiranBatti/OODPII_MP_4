@@ -5,11 +5,11 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
 
-public abstract class AbstractListDecorator<T> implements List<T> 
+public abstract class ListDecorator<T> implements List<T> 
 {
 	List<T> list;
 	
-	public AbstractListDecorator(List<T> list) 
+	public ListDecorator(List<T> list) 
 	{
 		this.list = list;
 	}
