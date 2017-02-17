@@ -1,5 +1,6 @@
 package listdecorator;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
@@ -9,9 +10,14 @@ import java.util.logging.Logger;
 import iteratordecorator.IteratorLogger;
 import listiteratordecorator.ListIteratorLogger;
 
-public class ListLogger<T> extends ListDecorator<T> implements Loggable
+public class ListLogger<T> extends ListDecorator<T> implements Loggable, List<T>
 {
 	private final Logger logger = logger();
+	
+	public ListLogger()
+	{
+		super(new ArrayList<T>());
+	}
 	
 	public ListLogger(List<T> list) 
 	{
