@@ -9,7 +9,7 @@ import java.util.logging.Logger;
 import iteratordecorator.IteratorLogger;
 import listiteratordecorator.ListIteratorLogger;
 
-public class ListLogger<T> extends ListDecorator<T> implements List<T>, Loggable
+public class ListLogger<T> extends ListDecorator<T> implements Loggable
 {
 	private final Logger logger = logger();
 	
@@ -163,6 +163,7 @@ public class ListLogger<T> extends ListDecorator<T> implements List<T>, Loggable
 		return super.toArray();
 	}
 
+	@SuppressWarnings("hiding")
 	@Override
 	public <T> T[] toArray(T[] a) {
 		logger.finer("toString(T[] a)");

@@ -15,30 +15,48 @@ public class ListDecoratorMain
 		List<String> list = new ArrayList<String>();
 		List<Integer> list2 = new ArrayList<Integer>();
 		
+		List<String> tinyList = new ArrayList<String>();
+		tinyList.add("Added Element 1");
+		tinyList.add("Added Element 2");
+		
 		ListDecorator<String> decoratedList = new ListLogger<String>(list);
 		
+		//Testing add() in ListLogger, and testing IteratorLogger
 		for(int i = 0; i < 10; i++)
 			decoratedList.add("Element " + i);
-		for (String string : decoratedList)
-			System.out.println(string);
-		
+
+		decoratedList.add(10, "Element 10");
 		decoratedList.get(3);
 		decoratedList.indexOf("Element 5");
+		decoratedList.contains("Element 10");
+		decoratedList.containsAll(list);
+		decoratedList.remove(10);
+		decoratedList.isEmpty();
 		
+		System.out.println("\n");
+		decoratedList.addAll(tinyList);
+		for (String string : decoratedList)
+			System.out.println(string);
+		System.out.println("\n");
 		
+		//Testing ListIterator
 		ListIterator<String> listIterator = decoratedList.listIterator();
-		listIterator.next();
-		listIterator.previous();
 		listIterator.hasNext();
+		listIterator.next();
 		listIterator.hasPrevious();
+		listIterator.previous();
 		
+		//Testing ReveresedList
+		System.out.println("\nReversedList:");
 		ListDecorator<Integer> reversedList = new ReverseList<Integer>(list2);
-		reversedList.add(1);
-		reversedList.add(2);
-		reversedList.add(3);
+		for(int i = 0; i < 3; i++)
+		{
+			System.out.println("Add " + i);
+			reversedList.add(i);
+		}
 		for (Integer integer : reversedList)
 		{
-			System.out.println(integer);
+			System.out.println("element " + integer);
 		}
 	}
 }

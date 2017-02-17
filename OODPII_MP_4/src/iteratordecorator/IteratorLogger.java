@@ -5,7 +5,7 @@ import java.util.logging.Logger;
 
 import listdecorator.Loggable;
 
-public class IteratorLogger<T> extends IteratorDectorator<T> implements Iterator<T>, Loggable
+public class IteratorLogger<T> extends IteratorDectorator<T> implements Loggable
 {
 	private final Logger logger = logger();
 	private int counter = 0;
