@@ -6,7 +6,7 @@ import java.util.ListIterator;
 
 import listdecorator.ListDecorator;
 import listdecorator.ListLogger;
-import listdecorator.ReverseList;
+import listdecorator.ReversedList;
 
 public class ListDecoratorMain
 {
@@ -48,7 +48,7 @@ public class ListDecoratorMain
 		
 		//Testing ReveresedList
 		System.out.println("\nReversedList:");
-		ListDecorator<Integer> reversedList = new ReverseList<Integer>(list2);
+		ListDecorator<Integer> reversedList = new ReversedList<Integer>(list2);
 		for(int i = 0; i < 3; i++)
 		{
 			System.out.println("Add " + i);
