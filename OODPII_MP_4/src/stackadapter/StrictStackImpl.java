@@ -30,10 +30,7 @@ public class StrictStackImpl<T> implements StrictStack<T>
 	{
 		if(elements.isEmpty())
 			throw new StrictStackEmptyException("Cannot remove from an empty stack");
-		
-		T removedElement = elements.remove(elements.size() - 1);
-		
-		return removedElement;
+		return elements.remove(elements.size() - 1);
 	}
 
 	@Override

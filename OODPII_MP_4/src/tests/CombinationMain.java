@@ -20,6 +20,6 @@ public class CombinationMain
 		stack.push("Fifth element");
 		System.out.println("We've removed the: " + stack.pop() + " from our stack.");
 		System.out.println("The " + stack.top() + " is at the top of our stack.");
-		System.out.println("There are " + stack.count() + " elements in our stack.\n\n\n");
+		System.out.println("There are " + stack.count() + " elements in our stack.");
 	}
 }

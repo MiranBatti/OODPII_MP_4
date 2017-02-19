@@ -21,10 +21,10 @@ public class StackMain
 		stack.push("Fifth element");
 		System.out.println("We've removed the: " + stack.pop() + " from our stack.");
 		System.out.println("The " + stack.top() + " is at the top of our stack.");
-		System.out.println("There are " + stack.count() + " elements in our stack.\n\n\n");
+		System.out.println("There are " + stack.count() + " elements in our stack.\n");
 		
 		
-		
+		System.out.println("Testing with not default list:");
 		List<Integer> arrayList = new ArrayList<Integer>();
 		arrayList.add(1);
 		StrictStack<Integer> arrayListStack = new StrictStackImpl<>(arrayList);
